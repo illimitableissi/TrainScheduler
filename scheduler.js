@@ -14,16 +14,16 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
 
   var database = firebase.database();
-
+console.log(database)
 
 // Click function on submit button click
-  $("submit-button").on("click", function(event) {
+  $("#submit-button").on("click", function(event) {
     event.preventDefault();
 
-var trainName = $("train-name").val().trim();
-var trainDestination = $("train-destination").val().trim();
-var trainTime = $("train-time").val().trim();
-var trainFrequency = $("train-frequency").val().trim();
+var trainName = $("#train-name").val().trim();
+var trainDestination = $("#train-destination").val().trim();
+var trainTime = $("#train-time").val().trim();
+var trainFrequency = $("#train-frequency").val().trim();
 
 
 var newTrain = {
@@ -36,10 +36,10 @@ var newTrain = {
   // Uploads employee data to the database
   database.ref().push(newTrain);
 
-  trainName.val("");
-  trainDestination.val("");
-  trainTime.val("");
-  trainFrequency.val("");
+  $("#train-name").val("");
+  $("#train-destination").val("");
+  $("#train-time").val ("");
+  $("#train-frequency").val("");
 
   });
 
