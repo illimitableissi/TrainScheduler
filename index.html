@@ -7,6 +7,8 @@
     <title>Train Scheduler</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 </head>
 <body>
 <div class="container">
@@ -16,7 +18,7 @@
             <div class="card">
                 <div class="card-header">Current Train Schedule</div>
                     <div class="card-body">
-                        <table class="table">
+                        <table class="table" id="train-table">
                             <thead class="thead-dark">
                             <tr>
                             <th scope="col">Train Name</th>
@@ -41,21 +43,21 @@
                         <form>
                             <div class="form-group">
                                 <label for="nameOfTrain">Train Name</label>
-                                <input type="text" class="form-control" id="trainName" placeholder="Enter email">
+                                <input type="text" class="form-control" id="train-name" placeholder="">
                             </div>
                              <div class="form-group">
                                 <label for="destination">Destination</label>
-                                <input type="text" class="form-control" id="trainDestination" placeholder="Enter email">
+                                <input type="text" class="form-control" id="train-destination" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="firstTrainTime">First Train Time</label>
-                                <input type="text" class="form-control" id="trainTime" placeholder="Enter email">
+                                <input type="text" class="form-control" id="train-time" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="frequencyOfTrain">Frequency</label>
-                                <input type="text" class="form-control" id="frequency" placeholder="Enter email">
+                                <input type="text" class="form-control" id="train-frequency" placeholder="">
                             </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" id="submit-button" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
             </div>
