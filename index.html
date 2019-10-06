@@ -4,14 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Train Scheduler</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
+    <div class="row"><h1>12 Seconds to Midnight</h1></div>
+    <div class="row"></div>
     <div class="row">
-        
+        <h3>Add Train</h3>
+        <form>
+                <div class="form-group">
+                  <label for="nameOfTrain">Train Name</label>
+                  <input type="text" class="form-control" id="trainName" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="destination">Destination</label>
+                    <input type="text" class="form-control" id="trainDestination" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="firstTrainTime">First Train Time</label>
+                    <input type="text" class="form-control" id="trainTime" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="frequencyOfTrain">Frequency</label>
+                    <input type="text" class="form-control" id="frequency" placeholder="Enter email">
+                </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
     </div>
 </div>
-    
+   
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="scheduler.js"></script>
 </body>
 </html>
