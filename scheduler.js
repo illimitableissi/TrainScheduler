@@ -20,12 +20,13 @@ console.log(database)
   $("#submit-button").on("click", function(event) {
     event.preventDefault();
 
+// jQuery variables from the HTML
 var trainName = $("#train-name").val().trim();
 var trainDestination = $("#train-destination").val().trim();
 var trainTime = $("#train-time").val().trim();
 var trainFrequency = $("#train-frequency").val().trim();
 
-
+// variable to push inputs to Firebase
 var newTrain = {
     name: trainName,
     destination: trainDestination,
@@ -33,7 +34,7 @@ var newTrain = {
     frequency: trainFrequency
 };
 
-  // Uploads employee data to the database
+  // Uploads employee data to the firebase
   database.ref().push(newTrain);
 
   $("#train-name").val("");
@@ -42,23 +43,32 @@ var newTrain = {
   $("#train-frequency").val("");
 
   });
-console.log(moment())
+// function for referencing items entered into Firebase
   database.ref().on("child_added", function(snapShot) {
     console.log(snapShot.val());
 
+    //establishing variables for items entered into Firebase
     var trainName = snapShot.val().name;
     var trainDestination = snapShot.val().destination;
     var trainTime = snapShot.val().time;
     var trainFrequency = snapShot.val().frequency;
     
+    //converts entered train time
     var trainTimeConvert = moment(trainTime, "HH:mm").subtract(1, "years")
     console.log("Here is the train time converted: " + trainTimeConvert);
+    
+    //calculates difference in time between current time and entered time
     var diffTime = moment().diff(moment(trainTimeConvert), 'minutes');
     console.log("difference in time:" + diffTime)
+
     var trainRemainder = diffTime%trainFrequency
     console.log(trainRemainder)
+
+    //calculates minutes left until train arrival
     var minutesLeft = trainFrequency - trainRemainder
     console.log(minutesLeft)
+
+    //calculates time until next train
     var nextTrain = moment().add(minutesLeft, 'm').format("HH:mm");
     console.log(nextTrain)
    
