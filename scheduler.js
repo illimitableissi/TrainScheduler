@@ -51,16 +51,17 @@ console.log(moment())
     var trainTime = snapShot.val().time;
     var trainFrequency = snapShot.val().frequency;
     
-
-    var trainTimeConvert = moment(trainTime, "HH:mm");
+    var trainTimeConvert = moment(trainTime, "HH:mm").subtract(1, "years")
     console.log("Here is the train time converted: " + trainTimeConvert);
     var diffTime = moment().diff(moment(trainTimeConvert), 'minutes');
     console.log("difference in time:" + diffTime)
-    var trainRemainder = diffTime % trainFrequency
+    var trainRemainder = diffTime%trainFrequency
     console.log(trainRemainder)
-    var nextTrain = moment().add(trainFrequency, 'm').format("HH:mm");
     var minutesLeft = trainFrequency - trainRemainder
     console.log(minutesLeft)
+    var nextTrain = moment().add(minutesLeft, 'm').format("HH:mm");
+    console.log(nextTrain)
+   
 
   // Create the new row
   var newRow = $("<tr>").append(
